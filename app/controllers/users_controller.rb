@@ -12,7 +12,6 @@ class UsersController < ApplicationController
 
   def follow
     respond_to do |format|
-      follower = Follower.where(user_id: params[:user_id], associated_id: current_user.id)
       if @follower.present?
         flash[:notice] = "Already following"
       else
