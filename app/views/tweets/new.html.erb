@@ -1,0 +1,8 @@
+<div>
+  <%= form_tag(@tweet, method: :post) do %>
+    <%= text_field_tag :title, '', placeholder: 'Please enter Title' %> <br>
+    <%= text_area_tag :content, '', placeholder: 'Please enter content' %> <br>
+
+    <%= submit_tag('Post') -%>
+  <% end -%>
+</div>

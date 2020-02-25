@@ -1,0 +1,34 @@
+
+<%= form_tag() do  %>
+
+  <div class="field">
+    <%= label_tag 'First name' %>
+    <%= @user.first_name %>
+  </div>
+
+  <div class="field">
+    <%= label_tag 'Last name' %>
+    <%= @user.last_name %>
+  </div>
+
+  <div class="field">
+    <%= label_tag 'Email' %>
+    <%= @user.email %>
+  </div>
+
+  <div class="field">
+    <%= link_to 'Following', user_follow_path(user_id: @user.id), remote: true, method: :post, class: 'navbar-link' %> <br>
+    <%= link_to 'UnFollow', user_unfollow_path(user_id: @user.id), remote: true, method: :post, class: 'navbar-link' %> <br>
+  </div>
+  <hr>
+  <h1>List of Followers</h1>
+  <div class="actions">
+    <% @followers.each do |follower| -%>
+    <div>
+      <%= "#{follower.associated.first_name} #{follower.associated.last_name}" %>
+    </div>
+    <% end -%>
+  </div>
+<% end %>
+
+<%= link_to "Back", :back %>

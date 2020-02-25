@@ -1,0 +1,13 @@
+<div>
+  <head>Tweets</head>
+</div>
+
+<div>
+  <% @tweets.each do |tweet| -%>
+    <div>
+      <h5>User name: <%= link_to tweet.user.first_name, user_path(tweet.user_id) %> <br> </h5>
+      <h6><%= tweet.content %></h6>
+
+    </div>
+  <% end -%>
+</div>
