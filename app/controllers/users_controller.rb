@@ -19,8 +19,8 @@ class UsersController < ApplicationController
         @follower = Follower.new(user_id: params[:user_id], associated_id: current_user.id)
         @follower.save
       end
+      format.js {render inline: "location.reload();" }
 
-      format.js { render :js => "window.location.href = /users/#{params[:user_id]}" }
     end
   end
 
@@ -31,8 +31,8 @@ class UsersController < ApplicationController
       else
         flash[:notice] = "You are not following"
       end
+      format.js {render inline: "location.reload();" }
 
-      format.js { render :js => "window.location.href = /users/#{params[:user_id]}" }
     end
   end
 
